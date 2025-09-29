@@ -202,7 +202,7 @@ const Hero = () => (
             <IconLink href="mailto:nishanthraghavaaitha@gmail.com" label="Email" />
             <IconLink href="https://www.linkedin.com/in/nishanth-raghava-6b99151b6/" label="LinkedIn" />
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}Nishanth_Raghava_Aitha.pdf`}
               download="Nishanth_Raghava_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50"
             >
