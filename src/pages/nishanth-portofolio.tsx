@@ -5,7 +5,7 @@ import { IoLogoAndroid, IoLogoIonic, IoLogoJavascript } from "react-icons/io5";
 import { BiLogoTypescript, BiLogoPostgresql  } from "react-icons/bi";
 import { SiXcode, SiPostman } from "react-icons/si";
 import { MdOutlineMailOutline } from "react-icons/md";
-import resume from '../Files/Nishanth_Raghava_Aitha.pdf' 
+
 /**
  * Nishanth Raghava Aitha – Portfolio (React + Tailwind)
  * Light theme · Subtle scroll reveals · Clean alignment
