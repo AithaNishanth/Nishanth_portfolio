@@ -202,7 +202,8 @@ const Hero = () => (
             <IconLink href="mailto:nishanthraghavaaitha@gmail.com" label="Email" />
             <IconLink href="https://www.linkedin.com/in/nishanth-raghava-6b99151b6/" label="LinkedIn" />
             <a
-              href={resume}
+              href="/resume.pdf"
+              download="Nishanth_Raghava_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M20 21H4"/></svg>
