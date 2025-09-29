@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState, type JSX, type PropsWithChildren, type ReactNode } from "react";
 import { Code, Workflow  } from "lucide-react";
-import { FaAngular, FaDatabase, FaNodeJs, FaReact } from "react-icons/fa";
+import { FaAngular, FaNodeJs, FaReact, FaLinkedin  } from "react-icons/fa";
 import { IoLogoAndroid, IoLogoIonic, IoLogoJavascript } from "react-icons/io5";
 import { BiLogoTypescript, BiLogoPostgresql  } from "react-icons/bi";
 import { SiXcode, SiPostman } from "react-icons/si";
+import { MdOutlineMailOutline } from "react-icons/md";
 
 /**
  * Nishanth Raghava Aitha – Portfolio (React + Tailwind)
@@ -40,9 +41,9 @@ interface RevealProp {
 const skillIcons: Record<string, JSX.Element> = {
   JavaScript: <IoLogoJavascript />,
   TypeScript: <BiLogoTypescript />,
-  SQL: <FaDatabase />,
   Angular: <FaAngular />,
   React: <FaReact  />,
+  "React Native": <FaReact  />,
   "Node.js": <FaNodeJs  />,
   "Ionic (Capacitor/Cordova)": <IoLogoIonic  />,
   PostgreSQL: <BiLogoPostgresql  />,
@@ -139,7 +140,7 @@ const NavLink : React.FC<NavProps> = ({ href, children }) => (
   </a>
 );
 
-const Divider = () => <hr className="my-6 border-gray-200" />;
+// const Divider = () => <hr className="my-6 border-gray-200" />;
 
 const Pill : React.FC<PropsWithChildren> = ({ children }) => (
   <span className="inline-flex items-center rounded-xl bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
@@ -154,17 +155,7 @@ const IconLink : React.FC<IconProps> = ({ href, label }) => (
     rel="noreferrer"
     className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      className="h-4 w-4"
-    >
-      <path d="M10 13a5 5 0 1 1 7.07 7.07l-3.54 3.54a5 5 0 1 1-7.07-7.07" />
-      <path d="M8.59 15.41 15.41 8.59" />
-    </svg>
+    {label === 'Email' ? <MdOutlineMailOutline /> : <FaLinkedin />}
     {label}
   </a>
 );
@@ -208,10 +199,10 @@ const Hero = () => (
             >
               View Projects
             </a>
-            <IconLink href="mailto:nishanthraghava@gmail.com" label="Email" />
+            <IconLink href="mailto:nishanthraghavaaitha@gmail.com" label="Email" />
             <IconLink href="https://www.linkedin.com/in/nishanth-raghava-6b99151b6/" label="LinkedIn" />
             <a
-              href="#resume"
+              href="/Nishanth_Raghava_Aitha.pdf"
               className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M20 21H4"/></svg>
@@ -219,7 +210,7 @@ const Hero = () => (
             </a>
           </div>
         </div>
-        <Reveal className="lg:col-span-2" delay={100}>
+        {/* <Reveal className="lg:col-span-2" delay={100}>
           <Card className="p-6">
             <div className="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-violet-200 to-teal-200 border border-gray-200 flex items-center justify-center">
               <div className="text-center">
@@ -242,7 +233,7 @@ const Hero = () => (
               </div>
             </div>
           </Card>
-        </Reveal>
+        </Reveal> */}
       </div>
     </div>
   </header>
@@ -254,16 +245,16 @@ const Skills = () => (
       {[
         "JavaScript",
         "TypeScript",
-        "SQL",
         "Angular",
         "React",
+        "React Native",
         "Node.js",
         "Ionic (Capacitor/Cordova)",
-        "PostgreSQL",
         "API Integration",
         "Xcode",
         "Android Studio",
         "Postman",
+        "PostgreSQL",
       ].map((skill, i) => (
         <Reveal key={skill} delay={i * 50}>
           <Card className="p-4">
@@ -299,22 +290,14 @@ const Experience = () => (
         {[
           {
             role: "Associate Engineer",
-            company: "Cambridge Technology Enterprises",
-            period: "Apr 2024 – Present",
+            company: "RP Webapps(Subsidary of Cambridge Technology)",
+            period: "Jan 2023 - Present",
             points: [
               "Developed responsive web & mobile apps with Angular/React.",
               "Integrated RESTful APIs and optimized frontend performance.",
-              "Built cross-platform apps using Capacitor, Ionic & Cordova.",
-              "Ensured accessibility, maintainability, and code quality.",
-            ],
-          },
-          {
-            role: "Trainee Engineer",
-            company: "Cambridge Technology Enterprises",
-            period: "Feb 2023 – Mar 2024",
-            points: [
-              "Contributed to real-world projects in Angular/React/JS.",
               "Collaborated on API integration and UI improvements.",
+              "Built cross-platform apps using Ionic(Capictor & Cordova) and React Native.",
+              "Ensured accessibility, maintainability, and code quality.",
             ],
           },
         ].map((job, i) => (
@@ -358,22 +341,34 @@ const Projects = () => (
           desc:
             "Role-based dashboards, GPS tagging, camera/video capture, streamlined uploads; responsive and performant.",
           tags: ["Angular", "Cordova", "Maps", "GPS"],
-          link: "#",
+          link: "",
         },
         {
           name: "E-Wallet – Secure Digital Payments Platform",
           desc:
             "Cross-platform payment app with OTP login, UAE Pass auth, banking API integrations; security-focused.",
           tags: ["React", "Ionic", "Capacitor", "Security"],
-          link: "#",
+          link: "",
         },
         {
           name: "Mosquito Control – Technician Field Tracking",
           desc:
             "Technician tracking with GPS logging, mobile-first workflows, time tracking, and visual proof via camera.",
           tags: ["Mobile", "GPS", "Forms"],
-          link: "#",
+          link: "",
         },
+        {
+          name:"NOC Customer & NOC Inspector App",
+          desc:"Cross-platform mobile app for NOC customers and inspectors to apply the NOC and track the status using Ionic Capacitor Angular; deployed on Android and iOS",
+          tags: ["Angular", "Ionic", "Capacitor", "Security"],
+          link:''
+        },
+        {
+          name:"Aber App",
+          desc:"Developed a cross-platform mobile application using React Native for Android and iOS, integrating REST APIs for seamless data flow.",
+          tags:["React Native"],
+          link:''
+        }
       ].map((p, i) => (
         <Reveal key={p.name} delay={i * 80}>
           <Card className="overflow-hidden">
@@ -388,11 +383,12 @@ const Projects = () => (
                   <Badge key={t}>{t}</Badge>
                 ))}
               </div>
-              <div className="mt-4">
+              {p.link !== '' && <div className="mt-4">
                 <a href={p.link} target="_blank" rel="noreferrer" className="text-sm font-medium text-violet-700 hover:underline">
                   View project ↗
                 </a>
               </div>
+              } 
             </div>
           </Card>
         </Reveal>
@@ -444,8 +440,8 @@ const Contact = () => (
             <div className="mt-3 space-y-2 text-sm text-gray-700">
               <p>
                 <span className="font-medium">Email:</span>{" "}
-                <a href="mailto:nishanthraghava@gmail.com" className="text-violet-700 hover:underline">
-                  nishanthraghava@gmail.com
+                <a href="mailto:nishanthraghavaaitha@gmail.com" className="text-violet-700 hover:underline">
+                  nishanthraghavaaitha@gmail.com
                 </a>
               </p>
               <p>
@@ -462,29 +458,6 @@ const Contact = () => (
               <p><span className="font-medium">Location:</span> Hyderabad, India</p>
             </div>
           </div>
-          <form className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="Your name"
-              className="w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-            <input
-              type="email"
-              placeholder="Your email"
-              className="w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-            <textarea
-              placeholder="Your message"
-              rows={4}
-              className="sm:col-span-2 w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-            <button
-              type="button"
-              className="sm:col-span-2 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-teal-600 hover:from-violet-700 hover:to-teal-700 px-4 py-2.5 text-sm font-semibold text-white"
-            >
-              Send message
-            </button>
-          </form>
         </div>
       </Card>
     </Reveal>
@@ -513,15 +486,14 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="p-5 md:col-span-2">
               <p className="text-gray-700">
-                I’m an engineer focused on crafting clean, performant interfaces and cross‑platform apps. At Cambridge
-                Technology Enterprises, I’ve delivered responsive products, integrated secure APIs, and collaborated closely
+                I’m an engineer focused on crafting clean, performant interfaces and cross‑platform apps. At RP Webapps, I’ve delivered responsive products, integrated secure APIs, and collaborated closely
                 with designers and backend teams. I value clarity, maintainability, and thoughtful user experience.
               </p>
             </Card>
             <Card className="p-5">
               <h3 className="text-sm font-semibold text-gray-900">Quick facts</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                <li>Primary: Angular · React · Ionic</li>
+                <li>Primary: Angular · React</li>
                 <li>Strengths: Performance · UX · Security</li>
                 <li>Open to: Web & Mobile roles</li>
               </ul>
